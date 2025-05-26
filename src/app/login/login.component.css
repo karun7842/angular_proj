@@ -1,0 +1,111 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100%;
+}
+
+.login-page {
+  position: relative;
+  background: url('/assets/doctor.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+
+.login-card {
+  position: relative;
+  z-index: 2;
+  background: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+
+
+.logo img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background: #f0f8ff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.input-icon {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+}
+
+.sign-in-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sign-in-btn:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  margin-top: 10px;
+  color: red;
+  font-size: 14px;
+}
+
+.validation-error {
+  color: red;
+  font-size: 13px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.forgot-password, .sign-up {
+  margin-top: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.forgot-password a,
+.sign-up a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.forgot-password a:hover,
+.sign-up a:hover {
+  text-decoration: underline;
+}
+

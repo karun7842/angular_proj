@@ -1,1 +1,91 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+*{
+    transition: all 200ms ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  z-index: 1;
+}
+/* Cards (login, form, signup) */
+.dark .login-card,
+.dark .form-card {
+  background: #454545 !important;
+  color: #f1f1f1 !important;
+}
+
+/* Input group (container for icon + input) */
+.dark .input-group {
+  background: #3a3a3a !important;
+  color: #f1f1f1 !important;
+}
+
+/* Icon inside .input-group */
+.dark .input-icon {
+  color: #66b2ff !important;
+}
+
+/* Inputs */
+.dark input {
+  background: #3a3a3a !important;
+  color: #f1f1f1 !important;
+  border: none !important;
+}
+
+/* Placeholder text */
+.dark input::placeholder {
+  color: #c2c2c2 !important;
+}
+
+/* Buttons */
+.dark button,
+.dark .sign-in-btn {
+  background-color: #1e88e5 !important;
+  color: #ffffff !important;
+}
+
+.dark button:hover,
+.dark .sign-in-btn:hover {
+  background-color: #1565c0 !important;
+}
+
+/* Headings */
+.dark h2 {
+  color: #f1f1f1 !important;
+}
+
+/* Error and Success messages */
+.dark .error,
+.dark .validation-error {
+  color: #ff6b6b !important;
+}
+
+.dark .success {
+  color: #66ff99 !important;
+}
+
+/* Links */
+.dark .forgot-password a,
+.dark .sign-up a {
+  color: #66b2ff !important;
+}
+
+.dark .switch-link{
+    color: #f1f1f1 !important;
+}
+
+.dark .forgot-password a:hover,
+.dark .sign-up a:hover {
+  text-decoration: underline !important;
+}
+
+.dark .overlay{
+    background: #1e88e5b5 !important;
+}
