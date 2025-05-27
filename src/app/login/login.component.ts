@@ -54,11 +54,11 @@ export class LoginComponent implements OnInit {
     );
 
     if (foundUser) {
-      localStorage.setItem('currentUser', foundUser.username);
-      this.errorMessage = '';
-      this.router.navigate(['/home', foundUser.username]);
+      sessionStorage.setItem('currentDoctor', JSON.stringify(foundUser));
+      this.router.navigate(['/doctor-dashboard']);
     } else {
       this.errorMessage = 'Invalid username or password.';
     }
   }
-}
+  
+  }

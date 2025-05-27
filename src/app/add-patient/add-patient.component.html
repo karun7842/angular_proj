@@ -1,0 +1,88 @@
+<div class="container mt-5">
+  <div class="is-flex is-justify-content-flex-start mb-4">
+    <button class="button is-info" (click)="goBack()">← Back</button>
+  </div>
+
+  <div class="box p-5">
+    <h2 class="title is-4 has-text-centered mb-5">Add Patient Details</h2>
+
+    <form (ngSubmit)="savePatient(patientForm)" #patientForm="ngForm">
+      <div class="field">
+        <label class="label" for="name">Patient Name</label>
+        <div class="control">
+          <input class="input" type="text" id="name" required [(ngModel)]="patient.name" name="name" placeholder="Enter patient name" #name="ngModel" />
+        </div>
+        <p class="help is-danger" *ngIf="name.invalid && name.touched">Name is required.</p>
+      </div>
+
+      <div class="field">
+        <label class="label" for="age">Age</label>
+        <div class="control">
+          <input class="input" type="number" id="age" required min="0" [(ngModel)]="patient.age" name="age" placeholder="Enter age" #age="ngModel" />
+        </div>
+        <p class="help is-danger" *ngIf="age.invalid && age.touched">Valid age is required.</p>
+      </div>
+
+      <div class="field">
+        <label class="label" for="bloodType">Blood Type</label>
+        <div class="control">
+          <div class="select is-fullwidth">
+            <select id="bloodType" required [(ngModel)]="patient.bloodType" name="bloodType" #bloodType="ngModel">
+              <option value="" disabled>Select blood type</option>
+              <option *ngFor="let type of bloodTypes" [value]="type">{{ type }}</option>
+            </select>
+          </div>
+        </div>
+        <p class="help is-danger" *ngIf="bloodType.invalid && bloodType.touched">Blood type is required.</p>
+      </div>
+
+      <div class="field">
+        <label class="label" for="symptoms">Symptoms</label>
+        <div class="control">
+          <textarea class="textarea" id="symptoms" required [(ngModel)]="patient.symptoms" name="symptoms" placeholder="Enter symptoms" #symptoms="ngModel"></textarea>
+        </div>
+        <p class="help is-danger" *ngIf="symptoms.invalid && symptoms.touched">Symptoms are required.</p>
+      </div>
+
+      <div class="field">
+        <label class="label" for="treatment">Treatment</label>
+        <div class="control">
+          <input class="input" type="text" id="treatment" required [(ngModel)]="patient.treatment" name="treatment" placeholder="Suggested treatment" #treatment="ngModel" />
+        </div>
+        <p class="help is-danger" *ngIf="treatment.invalid && treatment.touched">Treatment is required.</p>
+      </div>
+
+      <div class="field">
+        <label class="label" for="condition">Condition</label>
+        <div class="control">
+          <div class="select is-fullwidth">
+            <select id="condition" [(ngModel)]="patient.condition" name="condition">
+              <option value="">Select</option>
+              <option value="Stable">Stable</option>
+              <option value="Critical">Critical</option>
+              <option value="Observation">Under Observation</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="checkbox">
+          <input type="checkbox" id="status" [(ngModel)]="patient.status" name="status" />
+          Admitted
+        </label>
+      </div>
+
+      <div class="field">
+        <label class="checkbox">
+          <input type="checkbox" id="isEmergency" [(ngModel)]="patient.isEmergency" name="isEmergency" />
+          Emergency
+        </label>
+      </div>
+
+      <div class="control is-expanded">
+        <button type="submit" class="button is-info is-fullwidth" [disabled]="patientForm.invalid">Save Patient</button>
+      </div>
+    </form>
+  </div>
+</div>

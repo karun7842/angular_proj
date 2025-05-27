@@ -1,0 +1,78 @@
+<div class="full-page-section">
+
+  <!-- First line: welcome message -->
+<div style="margin-bottom: 10px;">
+  <h2>Welcome, Dr. {{ doctor?.username }}</h2>
+</div>
+
+<!-- Second line: Add Patient, Search bar with icon, Logout -->
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
+
+  <!-- Left: Add Patient -->
+  <button (click)="addPatient()" class="button is-primary is-small">
+    <i class="fa fa-user-plus"></i> Add Patient
+  </button>
+
+  <!-- Middle: search bar with icon inside, set max-width -->
+  <div style="position: relative; max-width: 300px; flex-grow: 1; margin: 0 10px;">
+    <input
+      type="text"
+      placeholder="Search patients..."
+      [(ngModel)]="searchTerm"
+      class="input is-small is-rounded"
+      style="width: 100%; padding-right: 30px;"
+    />
+    <i
+      class="fa fa-search"
+      style="
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #888;
+        pointer-events: none;
+      "
+    ></i>
+  </div>
+
+  <!-- Right: Logout -->
+  <button (click)="logout()" class="button is-danger is-small">
+    <i class="fa fa-sign-out-alt"></i> Logout
+  </button>
+
+</div>
+
+  <!-- Table -->
+  <table *ngIf="filteredPatients.length > 0" class="table is-fullwidth is-hoverable mt-4">
+    <thead>
+      <tr>
+        <th (click)="sortBy('name')">
+          Name
+          <span *ngIf="sortField === 'name'">
+            <i [class]="sortDirection === 'asc' ? 'fa fa-arrow-up' : 'fa fa-arrow-down'"></i>
+          </span>
+        </th>
+        <th (click)="sortBy('age')">
+          Age
+          <span *ngIf="sortField === 'age'">
+            <i [class]="sortDirection === 'asc' ? 'fa fa-arrow-up' : 'fa fa-arrow-down'"></i>
+          </span>
+        </th>
+        <th>Symptoms</th>
+        <th>Treatment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let patient of filteredPatients">
+        <td>{{ patient.name }}</td>
+        <td>{{ patient.age }}</td>
+        <td>{{ patient.symptoms }}</td>
+        <td>{{ patient.treatment }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="filteredPatients.length === 0">
+    <p>No matching patients found.</p>
+  </div>
+</div>
