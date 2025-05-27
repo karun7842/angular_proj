@@ -23,11 +23,22 @@
         Enter a valid email address.
       </div>
 
-      <!-- Password -->
-      <input type="password" formControlName="password" placeholder="Password" />
-      <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid" class="error">
-        Password must be at least 8 characters, include one uppercase, one lowercase, and one special character.
-      </div>
+    <!-- Password -->
+<div class="input-group">
+  <input
+    [type]="showPassword ? 'text' : 'password'"
+    formControlName="password"
+    placeholder="Password"
+  />
+  <span class="eye-icon" (click)="togglePasswordVisibility()">
+    <i [ngClass]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
+  </span>
+</div>
+<div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid" class="error">
+  Password must be at least 8 characters, include one uppercase, one lowercase, and one special character.
+</div>
+
+
 
       <!-- Submit Button -->
       <button type="submit">Register</button>

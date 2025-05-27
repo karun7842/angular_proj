@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   errorMessage = '';
   users: User[] = [];
+  showPassword = false; // 👁️ For toggling password visibility
 
   constructor(
     private fb: FormBuilder,
@@ -41,6 +42,10 @@ export class LoginComponent implements OnInit {
     this.users = storedUsers ? JSON.parse(storedUsers) : [];
   }
 
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
+
   onSubmit(): void {
     if (this.loginForm.invalid) {
       this.errorMessage = 'Please enter both username and password.';
@@ -60,5 +65,4 @@ export class LoginComponent implements OnInit {
       this.errorMessage = 'Invalid username or password.';
     }
   }
-  
-  }
+}

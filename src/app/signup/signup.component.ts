@@ -14,17 +14,22 @@ export class SignupComponent {
   signupForm: FormGroup;
   successMessage = '';
   errorMessage = '';
+  showPassword = false; // 👁️
 
   constructor(private fb: FormBuilder, private router: Router) {
     this.signupForm = this.fb.group({
-      username: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]], // no special chars
+      username: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9]+$/)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [
         Validators.required,
         Validators.minLength(8),
         Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$/)
-      ]] // at least 1 lowercase, 1 uppercase, 1 special char, 8+ chars
+      ]]
     });
+  }
+
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 
   onSubmit(): void {
@@ -34,7 +39,6 @@ export class SignupComponent {
     }
 
     const newUser = this.signupForm.value;
-
     const users = JSON.parse(localStorage.getItem('users') || '[]');
 
     const exists = users.find((u: any) =>

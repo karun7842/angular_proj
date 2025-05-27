@@ -21,14 +21,18 @@
         Username is required.
       </div>
 
-      <!-- Password -->
-      <div class="input-group">
-        <span class="input-icon"><i class="lock-icon"></i></span>
-        <input type="password" formControlName="password" placeholder="Password" />
-      </div>
-      <div class="validation-error" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
-        Password is required.
-      </div>
+     <!-- Password -->
+<div class="input-group">
+  <span class="input-icon"><i class="lock-icon"></i></span>
+  <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Password" />
+  <span class="input-icon eye-icon" (click)="togglePasswordVisibility()">
+    <i [class]="showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+  </span>
+</div>
+<div class="validation-error" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+  Password is required.
+</div>
+
 
       <!-- Submit -->
       <button type="submit" class="sign-in-btn">SIGN IN</button>

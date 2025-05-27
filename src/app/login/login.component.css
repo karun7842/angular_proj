@@ -15,7 +15,6 @@ body, html {
   height: 100vh;
 }
 
-
 .login-card {
   position: relative;
   z-index: 2;
@@ -27,8 +26,6 @@ body, html {
   max-width: 400px;
   text-align: center;
 }
-
-
 
 .logo img {
   width: 60px;
@@ -45,31 +42,106 @@ h2 {
   align-items: center;
   margin-bottom: 10px;
   background: #f0f8ff;
-  padding: 10px;
+  padding: 12px 15px; /* Increased padding for better spacing */
   border-radius: 5px;
+  border: 1px solid #e0e6ed;
+  transition: border-color 0.3s ease;
+}
+
+/* Focus state for the container */
+.input-group:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
 }
 
 .input-icon {
   margin-right: 10px;
   color: #007bff;
+  flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .input-group input {
   flex: 1;
-  border: none;
-  outline: none;
-  background: transparent;
+  border: none !important; /* Force remove any borders */
+  outline: none !important; /* Force remove outline */
+  background: transparent !important; /* Force transparent background */
   font-size: 16px;
+  padding: 0;
+  margin: 0;
+  color: #333;
+  
+  /* Remove all possible browser default styling */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+/* Remove placeholder styling that might cause issues */
+.input-group input::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+/* Remove any focus styling that might create inner borders */
+.input-group input:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* Remove autofill styling that might create inner appearance */
+.input-group input:-webkit-autofill,
+.input-group input:-webkit-autofill:hover,
+.input-group input:-webkit-autofill:focus,
+.input-group input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #f0f8ff inset !important;
+  -webkit-text-fill-color: #333 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Remove any clear buttons or reveal buttons */
+.input-group input::-ms-clear,
+.input-group input::-ms-reveal {
+  display: none !important;
+  width: 0;
+  height: 0;
+}
+
+/* Remove password reveal button (eye icon) */
+.input-group input[type="password"]::-ms-reveal {
+  display: none !important;
+}
+
+.input-group input::-webkit-search-cancel-button,
+.input-group input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* Remove password field icons and masks in various browsers */
+.input-group input[type="password"]::-webkit-credentials-auto-fill-button,
+.input-group input[type="password"]::-webkit-strong-password-auto-fill-button {
+  display: none !important;
+}
+
+/* For Edge/IE password reveal button */
+.input-group input[type="password"]::-ms-reveal,
+.input-group input[type="password"]::-ms-clear {
+  display: none !important;
 }
 
 .sign-in-btn {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background-color: #007bff;
   color: white;
   border: none;
   font-size: 16px;
-  margin-top: 10px;
+  margin-top: 15px;
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -108,4 +180,7 @@ h2 {
 .sign-up a:hover {
   text-decoration: underline;
 }
-
+.eye-icon {
+  cursor: pointer;
+  color: #007bff;
+}

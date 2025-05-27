@@ -1,4 +1,4 @@
-/* Full page background and overlay like login */
+/* SIGNUP PAGE SPECIFIC STYLES */
 .signup-page {
   position: relative;
   background: url('/assets/doctor.jpg') no-repeat center center fixed;
@@ -10,31 +10,38 @@
   height: 100vh;
 }
 
-
 .form-card {
   position: relative;
   z-index: 2;
   background: white;
   padding: 30px 40px;
   border-radius: 10px;
-  /* box-shadow: 0 0 15px rgba(0, 123, 255, 0.2); */
   width: 100%;
   max-width: 400px;
   text-align: center;
 }
 
-input {
+.signup-page input {
   width: 100%;
   padding: 10px;
   margin-top: 12px;
   margin-bottom: 6px;
-  border:none;
+  border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 15px;
   background: #f0f8ff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-button {
+/* SIGNUP PAGE - FOCUS STATES */
+.signup-page input:focus {
+  outline: none;
+  border-color: #66b2ff !important;
+  box-shadow: 0 0 0 2px rgba(102, 178, 255, 0.2) !important;
+  background: #f0f8ff;
+}
+
+.signup-page button {
   margin-top: 10px;
   padding: 10px 15px;
   width: 100%;
@@ -46,37 +53,58 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.signup-page button:hover {
   background-color: #0056b3;
 }
 
-.error {
+.signup-page .error {
   color: red;
   font-size: 13px;
   margin-bottom: 8px;
   text-align: left;
 }
 
-.success {
+.signup-page .success {
   color: green;
   font-size: 14px;
   margin-top: 12px;
 }
 
-.switch-link {
+.signup-page .switch-link {
   margin-top: 15px;
   font-size: 14px;
-  color:black;
+  color: black;
 }
-.logo {
+
+.signup-page .logo {
   margin-bottom: 10px;
 }
 
-.logo img {
+.signup-page .logo img {
   width: 60px;
   height: auto;
 }
-h2 {
+
+.signup-page h2 {
   margin-bottom: 20px;
   color: #007bff;
+}
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #007bff;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.eye-icon i {
+  pointer-events: none;
+}
+
+
+.input-group {
+  position: relative;
 }
